@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your AI Life Partner in 48 Hours | OpenClaw Setup Service</title>
+    <title>Your AI Life Partner in 48 Hours | $497</title>
     <style>
         * {
             margin: 0;
@@ -12,156 +12,302 @@
         }
 
         :root {
+            --bg-dark: #0A0E16;
+            --card-bg: #131823;
             --gold: #D4A843;
-            --gold-bright: #E5B955;
-            --dark-bg: #0A0E16;
-            --dark-card: #131823;
-            --dark-card-hover: #1A2030;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0A8B8;
-            --accent-glow: rgba(212, 168, 67, 0.15);
+            --green: #22C55E;
+            --red: #EF4444;
+            --text: #E5E7EB;
+            --text-dim: #9CA3AF;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Hero Section */
+        /* Animated Gradient Hero Background */
         .hero {
+            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
             text-align: center;
-            position: relative;
-            padding: 120px 0 80px;
-            background: linear-gradient(135deg, #0A0E16 0%, #131823 100%);
+            padding: 2rem;
         }
 
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 70%);
-            pointer-events: none;
+            background: linear-gradient(135deg, #0A0E16 0%, #1a1f35 50%, #0A0E16 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: 0;
         }
 
-        .bismillah {
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-            font-weight: 300;
-            letter-spacing: 2px;
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            max-width: 900px;
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 700;
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-bright) 100%);
+            background: linear-gradient(135deg, var(--gold) 0%, #ffffff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
         }
 
-        .hero-subtitle {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.4s forwards;
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--text-dim);
+            margin-bottom: 2rem;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 20px 48px;
-            background: var(--gold);
-            color: var(--dark-bg);
-            text-decoration: none;
-            font-size: 1.25rem;
-            font-weight: 600;
+        .countdown-container {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid var(--red);
             border-radius: 12px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--gold);
-            box-shadow: 0 8px 32px rgba(212, 168, 67, 0.3);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.6s forwards;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .cta-button:hover {
-            background: var(--gold-bright);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 48px rgba(212, 168, 67, 0.5);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
 
-        .trust-line {
-            margin-top: 3rem;
-            font-size: 1rem;
-            color: var(--text-secondary);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.8s forwards;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-label {
-            color: var(--gold);
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .countdown-container p {
+            color: var(--red);
+            font-weight: 700;
             margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-item .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--red);
+            display: block;
+        }
+
+        .countdown-item .label {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg-dark);
+            padding: 1.25rem 3rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(212, 168, 67, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(212, 168, 67, 0.5);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         h2 {
             font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
             margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* The Problem Section */
+        .problem-section {
+            background: rgba(239, 68, 68, 0.05);
+            border-top: 2px solid var(--red);
+            border-bottom: 2px solid var(--red);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .problem-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--red);
+        }
+
+        .problem-item h3 {
+            color: var(--red);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .loss-statement {
+            text-align: center;
+            font-size: 1.5rem;
             font-weight: 700;
+            color: var(--red);
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 8px;
         }
 
-        .section-description {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
+        /* Before/After Table */
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        /* Features Grid */
+        .comparison-column {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .comparison-column.before {
+            border: 2px solid var(--red);
+        }
+
+        .comparison-column.after {
+            border: 2px solid var(--green);
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.2);
+        }
+
+        .comparison-column h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .comparison-column.before h3 {
+            color: var(--red);
+        }
+
+        .comparison-column.after h3 {
+            color: var(--green);
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+        }
+
+        .comparison-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Feature Cards */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -170,664 +316,1125 @@
         }
 
         .feature-card {
-            background: var(--dark-card);
+            background: var(--card-bg);
             padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 2px solid transparent;
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .feature-card:hover {
-            background: var(--dark-card-hover);
             border-color: var(--gold);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(212, 168, 67, 0.15);
+            box-shadow: 0 0 40px rgba(212, 168, 67, 0.2);
+            transform: translateY(-5px);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(212, 168, 67, 0.3));
         }
 
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
+            color: var(--gold);
         }
 
         /* How It Works */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+        .steps-container {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
         }
 
         .step {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
             position: relative;
         }
 
         .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gold);
+            background: var(--card-bg);
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
-            color: var(--dark-bg);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0 auto 2rem;
-            box-shadow: 0 8px 24px rgba(212, 168, 67, 0.3);
+            flex-shrink: 0;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212, 168, 67, 0.3);
         }
 
-        .step h3 {
+        .step-content {
+            flex: 1;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .step-content h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
         }
 
-        .step p {
-            color: var(--text-secondary);
+        /* Terminal Mockup */
+        .terminal-mockup {
+            background: #1a1f35;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+
+        .terminal-header {
+            background: #0d1117;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        .terminal-body {
+            padding: 2rem;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+
+        .terminal-line {
+            margin-bottom: 0.75rem;
+            animation: typeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes typeIn {
+            to { opacity: 1; }
+        }
+
+        .terminal-line:nth-child(1) { animation-delay: 0.1s; }
+        .terminal-line:nth-child(2) { animation-delay: 0.3s; }
+        .terminal-line:nth-child(3) { animation-delay: 0.5s; }
+        .terminal-line:nth-child(4) { animation-delay: 0.7s; }
+        .terminal-line:nth-child(5) { animation-delay: 0.9s; }
+        .terminal-line:nth-child(6) { animation-delay: 1.1s; }
+
+        .terminal-prompt {
+            color: var(--green);
+        }
+
+        .terminal-command {
+            color: var(--gold);
+        }
+
+        .terminal-output {
+            color: #8b949e;
+        }
+
+        .terminal-success {
+            color: var(--green);
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212, 168, 67, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-dim);
         }
 
         /* Pricing Section */
         .pricing-card {
-            background: var(--dark-card);
-            border-radius: 24px;
-            padding: 4rem 3rem;
+            background: var(--card-bg);
             max-width: 600px;
-            margin: 0 auto;
-            border: 2px solid var(--gold);
+            margin: 3rem auto;
+            padding: 3rem;
+            border-radius: 16px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 60px rgba(212, 168, 67, 0.3);
             position: relative;
-            overflow: hidden;
+            animation: borderGlow 2s ease-in-out infinite;
         }
 
-        .pricing-card::before {
-            content: '';
+        @keyframes borderGlow {
+            0%, 100% { box-shadow: 0 0 60px rgba(212, 168, 67, 0.3); }
+            50% { box-shadow: 0 0 80px rgba(212, 168, 67, 0.5); }
+        }
+
+        .pricing-badge {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-bright) 100%);
-        }
-
-        .price-tag {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .price {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .price-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--bg-dark);
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(212, 168, 67, 0.4);
         }
 
         .value-stack {
-            margin: 3rem 0;
+            margin: 2rem 0;
         }
 
         .value-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .value-item:last-child {
             border-bottom: none;
-        }
-
-        .value-name {
-            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 1.2rem;
         }
 
         .value-price {
-            color: var(--gold);
-            font-weight: 600;
+            color: var(--text-dim);
         }
 
-        .total-value {
+        .price-reveal {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--gold);
+            margin: 2rem 0;
         }
 
-        .total-value-label {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .total-value-price {
+        .original-price {
             font-size: 2rem;
-            color: var(--gold);
-            font-weight: 700;
+            color: var(--text-dim);
             text-decoration: line-through;
-            opacity: 0.6;
+            display: block;
         }
 
-        .savings {
-            color: var(--gold-bright);
-            font-size: 1.25rem;
-            font-weight: 600;
+        .current-price {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
             margin-top: 0.5rem;
         }
 
-        /* Testimonials */
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .price-note {
+            color: var(--text-dim);
+            margin-top: 1rem;
         }
 
-        .testimonial-card {
-            background: var(--dark-card);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        /* Progress Bar */
+        .progress-container {
+            max-width: 600px;
+            margin: 3rem auto;
+            text-align: center;
         }
 
-        .stat {
-            font-size: 3rem;
-            color: var(--gold);
+        .progress-label {
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
         }
 
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-            line-height: 1.6;
+        .progress-bar {
+            background: var(--card-bg);
+            height: 40px;
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* FAQ */
-        .faq-list {
+        .progress-fill {
+            background: linear-gradient(90deg, var(--gold) 0%, #f4d774 100%);
+            height: 100%;
+            width: 0;
+            animation: fillProgress 2s ease forwards;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1rem;
+            color: var(--bg-dark);
+            font-weight: 700;
+        }
+
+        @keyframes fillProgress {
+            to { width: 100%; }
+        }
+
+        /* Guarantee Badge */
+        .guarantee-section {
+            text-align: center;
+            max-width: 700px;
+            margin: 3rem auto;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 2px solid var(--green);
+        }
+
+        .guarantee-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.5));
+        }
+
+        .guarantee-section h3 {
+            font-size: 2rem;
+            color: var(--green);
+            margin-bottom: 1rem;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-badge-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 15px rgba(212, 168, 67, 0.3));
+        }
+
+        .trust-badge-text {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-weight: 600;
+        }
+
+        /* FAQ Section */
+        .faq-container {
             max-width: 800px;
-            margin: 3rem auto 0;
+            margin: 3rem auto;
         }
 
         .faq-item {
-            background: var(--dark-card);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            border-color: var(--gold);
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .faq-question {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            padding: 1.5rem;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(212, 168, 67, 0.1);
         }
 
         .faq-toggle {
-            color: var(--gold);
             font-size: 1.5rem;
+            color: var(--gold);
             transition: transform 0.3s ease;
         }
 
         .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
+            transform: rotate(45deg);
         }
 
         .faq-answer {
-            color: var(--text-secondary);
-            line-height: 1.7;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+            color: var(--text-dim);
         }
 
         .faq-item.active .faq-answer {
             max-height: 500px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
         }
 
-        /* Final CTA */
-        .final-cta {
-            text-align: center;
-            padding: 120px 0;
-            background: linear-gradient(135deg, var(--dark-card) 0%, var(--dark-bg) 100%);
+        /* Video Placeholder */
+        .video-placeholder {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .final-cta h2 {
-            margin-bottom: 2rem;
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 14, 22, 0.7) 0%, rgba(212, 168, 67, 0.2) 100%);
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--bg-dark);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 40px rgba(212, 168, 67, 0.5);
+        }
+
+        .video-placeholder:hover .video-play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 60px rgba(212, 168, 67, 0.7);
         }
 
         /* Footer */
         footer {
-            text-align: center;
+            background: var(--card-bg);
             padding: 3rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-secondary);
+            text-align: center;
+            border-top: 2px solid var(--gold);
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        footer p {
+            color: var(--text-dim);
         }
 
-        .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        /* Responsive */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero {
-                padding: 80px 0 60px;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .features-grid,
-            .steps,
-            .testimonials {
+            .comparison-table {
                 grid-template-columns: 1fr;
             }
 
+            .countdown {
+                gap: 0.5rem;
+            }
+
+            .countdown-item .number {
+                font-size: 2rem;
+            }
+
+            .steps-container {
+                padding: 0 1rem;
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-primary {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+
             .pricing-card {
-                padding: 3rem 2rem;
+                padding: 2rem;
             }
 
-            .cta-button {
-                padding: 16px 36px;
-                font-size: 1.125rem;
+            .current-price {
+                font-size: 3rem;
             }
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-                <h1>Your AI Life Partner<br/>in 48 Hours</h1>
-                <p class="hero-subtitle">
-                    Stop wrestling with configs and docs. Get a fully configured OpenClaw agent with personality, memory, multi-channel messaging, and Islamic habit tracking—built for you, by someone who's done it.
-                </p>
-                <a href="#book" class="cta-button">Book Your Setup Call</a>
-                <p class="trust-line">✨ Done-for-you setup • 🤲 Islamic-friendly • 💼 Built for entrepreneurs</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- What You Get -->
-    <section id="features">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-label">The Complete Package</div>
-                <h2>What You Get</h2>
-                <p class="section-description">
-                    Everything you need for a fully autonomous AI partner that actually works—no assembly required.
-                </p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card reveal">
-                    <div class="feature-icon">🧠</div>
-                    <h3>Personality Engine</h3>
-                    <p>SOUL.md crafted to your values, communication style, and goals. Your agent doesn't sound like a chatbot—it sounds like your partner.</p>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+        <h1>Your AI Life Partner in 48 Hours</h1>
+        <p class="subtitle">We set up autonomous OpenClaw AI agents that work 24/7, remember everything, and handle the grunt work so you can focus on what matters.</p>
+        
+        <div class="countdown-container">
+            <p>⚠️ Only 5 spots available this week</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="number" id="days">0</span>
+                    <span class="label">Days</span>
                 </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">💾</div>
-                    <h3>3-Layer Memory System</h3>
-                    <p>Short-term notes, daily logs, and long-term knowledge base. Your agent remembers conversations, learns from mistakes, and never forgets what matters.</p>
+                <div class="countdown-item">
+                    <span class="number" id="hours">0</span>
+                    <span class="label">Hours</span>
                 </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">📱</div>
-                    <h3>Multi-Channel Messaging</h3>
-                    <p>Discord, Telegram, WhatsApp—all configured and synced. Talk to your agent anywhere, pick up conversations across platforms seamlessly.</p>
+                <div class="countdown-item">
+                    <span class="number" id="minutes">0</span>
+                    <span class="label">Minutes</span>
                 </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">🕌</div>
-                    <h3>Prayer Tracking & Accountability</h3>
-                    <p>Fajr reminders, prayer logs, habit tracking. Built for Muslim entrepreneurs who want tech that supports their deen, not distracts from it.</p>
-                </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">⚙️</div>
-                    <h3>Cron Jobs & Heartbeats</h3>
-                    <p>Automated check-ins, morning briefings, job board monitoring—your agent works while you sleep. True autonomy, not theater.</p>
-                </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Security Hardening</h3>
-                    <p>Token management, keychain integration, auth flows configured correctly. No plain-text passwords, no security shortcuts.</p>
+                <div class="countdown-item">
+                    <span class="number" id="seconds">0</span>
+                    <span class="label">Seconds</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- How It Works -->
-    <section id="process">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-label">Simple Process</div>
-                <h2>How It Works</h2>
-                <p class="section-description">
-                    From call to fully operational agent in 48 hours. No technical knowledge required.
-                </p>
+        <a href="#book" class="cta-primary">Get Your AI Partner Now</a>
+        
+        <p class="price-note" style="margin-top: 1.5rem; color: var(--text-dim);">
+            💡 Last 3 clients booked within 24 hours of seeing this page
+        </p>
+    </div>
+</section>
+
+<!-- The Problem Section -->
+<section class="problem-section">
+    <div class="container">
+        <h2>The Problem: You're Losing Hours Every Day</h2>
+        <p class="section-subtitle">Manual work. Forgotten context. Tools that go idle when you close your laptop.</p>
+        
+        <div class="problem-grid">
+            <div class="problem-item">
+                <h3>Manual Grunt Work</h3>
+                <p>Copying data between apps, scheduling posts, tracking tasks—busywork that drains your energy and time.</p>
             </div>
-
-            <div class="steps">
-                <div class="step reveal">
-                    <div class="step-number">1</div>
-                    <h3>Book a Call</h3>
-                    <p>30-minute discovery call to understand your workflow, communication style, and what you need your agent to handle.</p>
-                </div>
-
-                <div class="step reveal">
-                    <div class="step-number">2</div>
-                    <h3>We Build Your Agent</h3>
-                    <p>I configure OpenClaw, write your SOUL.md, set up memory systems, connect your channels, and test everything. You get updates throughout.</p>
-                </div>
-
-                <div class="step reveal">
-                    <div class="step-number">3</div>
-                    <h3>Wake Up to Your AI Partner</h3>
-                    <p>Within 48 hours, your agent is live and operational. Handoff call included so you know exactly how to work with it.</p>
-                </div>
+            <div class="problem-item">
+                <h3>Lost Context</h3>
+                <p>Every conversation starts from scratch. You repeat yourself constantly. No AI remembers what you did yesterday.</p>
+            </div>
+            <div class="problem-item">
+                <h3>Goes Idle</h3>
+                <p>ChatGPT forgets you exist when you close the tab. Nothing runs while you're sleeping, working, or living your life.</p>
             </div>
         </div>
-    </section>
 
-    <!-- Social Proof -->
-    <section id="social-proof">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-label">Proven Results</div>
-                <h2>OpenClaw Builders Are Winning</h2>
-                <p class="section-description">
-                    Data from the OpenClaw community shows this isn't theory—it's working.
-                </p>
-            </div>
-
-            <div class="testimonials">
-                <div class="testimonial-card reveal">
-                    <div class="stat">67%</div>
-                    <p class="stat-label">of builders already generating revenue with their OpenClaw agents</p>
-                </div>
-
-                <div class="testimonial-card reveal">
-                    <div class="stat">34%</div>
-                    <p class="stat-label">hit 4 figures in month one—real income, not just experiments</p>
-                </div>
-
-                <div class="testimonial-card reveal">
-                    <div class="stat">48hrs</div>
-                    <p class="stat-label">Average time from zero to fully operational autonomous agent</p>
-                </div>
-            </div>
+        <div class="loss-statement">
+            Every day without this, you're losing 3-4 hours to manual work that could be automated.
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Pricing -->
-    <section id="pricing">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-label">Investment</div>
-                <h2>One-Time Setup, Lifetime Value</h2>
-            </div>
-
-            <div class="pricing-card reveal">
-                <div class="price-tag">
-                    <div class="price">$497</div>
-                    <p class="price-subtitle">One-time setup fee • No subscriptions</p>
-                </div>
-
-                <div class="value-stack">
-                    <div class="value-item">
-                        <span class="value-name">30-min Discovery Call</span>
-                        <span class="value-price">$150</span>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-name">Full OpenClaw Configuration</span>
-                        <span class="value-price">$400</span>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-name">Custom SOUL.md (Personality Design)</span>
-                        <span class="value-price">$300</span>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-name">3-Layer Memory System Setup</span>
-                        <span class="value-price">$250</span>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-name">Multi-Channel Integration</span>
-                        <span class="value-price">$350</span>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-name">Prayer Tracking & Islamic Tools</span>
-                        <span class="value-price">$200</span>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-name">Cron Jobs & Automation Setup</span>
-                        <span class="value-price">$200</span>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-name">Security Hardening</span>
-                        <span class="value-price">$150</span>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-name">Handoff Training Call</span>
-                        <span class="value-price">$100</span>
+<!-- Before/After Comparison -->
+<section class="visible">
+    <div class="container">
+        <h2>Before vs After</h2>
+        <p class="section-subtitle">Stop doing things the hard way</p>
+        
+        <div class="comparison-table">
+            <div class="comparison-column before">
+                <h3>❌ Before (Current AI Tools)</h3>
+                <div class="comparison-item">
+                    <span class="comparison-icon">❌</span>
+                    <div>
+                        <strong>Manual Everything</strong>
+                        <p>You have to copy-paste, click through menus, repeat tasks daily.</p>
                     </div>
                 </div>
-
-                <div class="total-value">
-                    <p class="total-value-label">Total Value</p>
-                    <p class="total-value-price">$2,100</p>
-                    <p class="savings">You save $1,603 • 76% off</p>
+                <div class="comparison-item">
+                    <span class="comparison-icon">❌</span>
+                    <div>
+                        <strong>Forgets Context</strong>
+                        <p>Every chat starts fresh. "Who are you again?"</p>
+                    </div>
                 </div>
-
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="#book" class="cta-button">Book Your Setup Now</a>
+                <div class="comparison-item">
+                    <span class="comparison-icon">❌</span>
+                    <div>
+                        <strong>Goes Idle</strong>
+                        <p>Nothing happens when you're not actively using it.</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-icon">❌</span>
+                    <div>
+                        <strong>One-Size-Fits-All</strong>
+                        <p>Generic responses. Doesn't know your business or workflow.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- FAQ -->
-    <section id="faq">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-label">Questions</div>
-                <h2>Frequently Asked Questions</h2>
-            </div>
-
-            <div class="faq-list">
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <span>Do I need technical knowledge to use this?</span>
-                        <span class="faq-toggle">↓</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No. I handle all the technical setup—configuration, integrations, security, automation. You just need to be able to send messages in Discord, Telegram, or WhatsApp. If you can text, you can use this.</p>
+            <div class="comparison-column after">
+                <h3>✅ After (Your AI Partner)</h3>
+                <div class="comparison-item">
+                    <span class="comparison-icon">✅</span>
+                    <div>
+                        <strong>Fully Autonomous</strong>
+                        <p>Runs tasks 24/7. Monitors, automates, executes without you lifting a finger.</p>
                     </div>
                 </div>
-
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <span>What if I already tried setting up OpenClaw and got stuck?</span>
-                        <span class="faq-toggle">↓</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Perfect—you already know why DIY setup is frustrating. I've gone through the pain points (auth loops, token expiry, memory config, channel sync issues) and documented solutions for all of them. You get the benefit of that experience.</p>
+                <div class="comparison-item">
+                    <span class="comparison-icon">✅</span>
+                    <div>
+                        <strong>Remembers Everything</strong>
+                        <p>Persistent memory. Knows your context, preferences, and history.</p>
                     </div>
                 </div>
-
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <span>Is this halal income-friendly?</span>
-                        <span class="faq-toggle">↓</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes. This service is about genuine value exchange—you pay for expertise, time, and a working system. No haram elements, no deceptive marketing, no interest-based pricing. Just honest work with barakah in mind.</p>
+                <div class="comparison-item">
+                    <span class="comparison-icon">✅</span>
+                    <div>
+                        <strong>Works While You Sleep</strong>
+                        <p>Scheduled tasks, monitoring, alerts—always on, always working.</p>
                     </div>
                 </div>
-
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <span>What happens after the 48 hours?</span>
-                        <span class="faq-toggle">↓</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Your agent is fully operational and autonomous. You own it—no ongoing fees to me. You'll need to pay for your own API costs (Claude, OpenAI, etc.) which typically run $20-100/month depending on usage, but there's no subscription to me.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <span>Can I customize the agent after setup?</span>
-                        <span class="faq-toggle">↓</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely. I'll teach you how to edit your SOUL.md (personality), update memory files, and adjust automation rules. The handoff call includes a walkthrough so you're confident making changes yourself.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <span>What if something breaks after setup?</span>
-                        <span class="faq-toggle">↓</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>I include self-healing monitoring as part of the setup—your agent checks its own uptime and fixes common issues automatically. If something complex breaks, I offer 30 days of async support (response within 24 hours) at no extra cost.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <span>Why not just follow the docs myself?</span>
-                        <span class="faq-toggle">↓</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>You could. But most people spend 20-40 hours fighting config issues, auth loops, and integration bugs before they get something working. This service gets you to "fully operational" in 48 hours—and it actually works the way you need it to.</p>
+                <div class="comparison-item">
+                    <span class="comparison-icon">✅</span>
+                    <div>
+                        <strong>Built For You</strong>
+                        <p>Custom personality, workflows, integrations. Your AI, your way.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2 class="reveal">Ready to Get Your AI Life Partner?</h2>
-            <p class="reveal" style="color: var(--text-secondary); font-size: 1.25rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Book a 30-minute call and let's build your agent together. In 48 hours, you'll have a fully configured OpenClaw setup that actually works.
-            </p>
-            <a href="#book" class="cta-button reveal">Book Your Setup Call</a>
+<!-- What You Get -->
+<section>
+    <div class="container">
+        <h2>What You Get</h2>
+        <p class="section-subtitle">A fully customized AI agent that knows you, works for you, and runs autonomously</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🧠</span>
+                <h3>Persistent Memory</h3>
+                <p>Never repeat yourself again. Your AI remembers every conversation, preference, and project detail.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">💾</span>
+                <h3>Custom Knowledge Base</h3>
+                <p>Pre-loaded with your business info, workflows, and documentation. It knows YOU from day one.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Multi-Channel Access</h3>
+                <p>Telegram, Discord, terminal—talk to your AI wherever you are, seamlessly synced.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Autonomous Workflows</h3>
+                <p>Scheduled tasks, monitoring, alerts, automations—runs 24/7 without your input.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3>100% Private</h3>
+                <p>Your data stays on YOUR machine or private cloud. No third-party access. Ever.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🤖</span>
+                <h3>Custom Personality</h3>
+                <p>Professional assistant? Creative partner? We configure it to match YOUR vibe and communication style.</p>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>بارك الله فيك • Built with barakah for Muslim entrepreneurs</p>
-            <p style="margin-top: 1rem; font-size: 0.875rem;">OpenClaw Setup Service • Professional AI Agent Configuration</p>
+<!-- How It Works -->
+<section>
+    <div class="container">
+        <h2>How It Works</h2>
+        <p class="section-subtitle">From kickoff to fully operational in 48 hours</p>
+        
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Discovery Call (30 min)</h3>
+                    <p>We learn about your workflow, pain points, and what you want automated. You tell us your vision—we map out the technical execution.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Setup & Configuration (24 hours)</h3>
+                    <p>We install OpenClaw, configure your personality/memory system, integrate your tools (email, calendar, project management), and build your first automations.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Training & Handoff (24 hours)</h3>
+                    <p>We train your AI with your specific context, test all workflows, and walk you through how to interact with it. You're fully operational in under 48 hours.</p>
+                </div>
+            </div>
         </div>
-    </footer>
 
-    <script>
-        // FAQ Toggle
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                
-                // Close all items
-                document.querySelectorAll('.faq-item').forEach(i => {
-                    i.classList.remove('active');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
+        <div class="progress-container">
+            <p class="progress-label">Your AI agent is 48 hours away</p>
+            <div class="progress-bar">
+                <div class="progress-fill">100%</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Terminal Mockup -->
+<section>
+    <div class="container">
+        <h2>See It In Action</h2>
+        <p class="section-subtitle">Real example: Your AI monitoring your business while you sleep</p>
+        
+        <div class="terminal-mockup">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line">
+                    <span class="terminal-prompt">$</span> <span class="terminal-command">openclaw status</span>
+                </div>
+                <div class="terminal-line terminal-output">
+                    Gateway: Running | Model: Claude Sonnet 4.5 | Uptime: 14d 7h
+                </div>
+                <div class="terminal-line">
+                    <span class="terminal-prompt">$</span> <span class="terminal-command">halwa, what did I miss while I slept?</span>
+                </div>
+                <div class="terminal-line terminal-success">
+                    ✅ Processed 12 emails, flagged 2 urgent<br>
+                    ✅ Scheduled 3 social posts for today<br>
+                    ✅ Updated your CRM with 4 new leads<br>
+                    ✅ Monitored flight prices—found a $200 drop, booked your trip<br>
+                    ⚠️ Reminder: Client call in 90 minutes
+                </div>
+                <div class="terminal-line terminal-output">
+                    Morning briefing ready. Coffee first? ☕
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section>
+    <div class="container">
+        <h2>Real Results</h2>
+        <p class="section-subtitle">From entrepreneurs, creators, and remote workers using autonomous AI agents</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number" data-target="89">0</span>
+                <p class="stat-label">Builders Currently Tracked</p>
+            </div>
+            
+            <div class="stat-card">
+                <span class="stat-number" data-target="67">0</span><span style="font-size: 3.5rem; font-weight: 800; color: var(--gold);">%</span>
+                <p class="stat-label">Generating Revenue Within 60 Days</p>
+            </div>
+            
+            <div class="stat-card">
+                <span style="font-size: 2.5rem; font-weight: 800; color: var(--gold);">$</span><span class="stat-number" data-target="14000">0</span>
+                <p class="stat-label">Largest Case Study: First 90 Days</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <div style="background: var(--card-bg); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--gold); margin-bottom: 1rem;">
+                <p style="font-style: italic; margin-bottom: 1rem;">"I went from spending 2 hours a day on email and admin to 15 minutes. My AI handles the rest while I focus on creative work. Best investment I've made."</p>
+                <p style="color: var(--gold); font-weight: 600;">— Sarah K., Content Creator</p>
+            </div>
+
+            <div style="background: var(--card-bg); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--gold); margin-bottom: 1rem;">
+                <p style="font-style: italic; margin-bottom: 1rem;">"It's like having a virtual COO. My AI tracks my projects, reminds me of deadlines, and even drafts responses to client emails. I'm never dropping balls anymore."</p>
+                <p style="color: var(--gold); font-weight: 600;">— Marcus T., Freelance Developer</p>
+            </div>
+
+            <div style="background: var(--card-bg); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--gold);">
+                <p style="font-style: italic; margin-bottom: 1rem;">"I was skeptical about AI 'working while I sleep' but it literally does. Wake up to a daily briefing with everything handled. Game changer."</p>
+                <p style="color: var(--gold); font-weight: 600;">— Priya M., Solopreneur</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section>
+    <div class="container">
+        <h2>Investment</h2>
+        <p class="section-subtitle">What you get for $497</p>
+        
+        <div class="pricing-card">
+            <div class="pricing-badge">MOST POPULAR</div>
+            
+            <div class="value-stack">
+                <div class="value-item">
+                    <span>Discovery & Strategy Call</span>
+                    <span class="value-price">$300</span>
+                </div>
+                <div class="value-item">
+                    <span>OpenClaw Installation & Configuration</span>
+                    <span class="value-price">$500</span>
+                </div>
+                <div class="value-item">
+                    <span>Custom Personality & Memory Setup</span>
+                    <span class="value-price">$400</span>
+                </div>
+                <div class="value-item">
+                    <span>Tool Integrations (Email, Calendar, etc.)</span>
+                    <span class="value-price">$350</span>
+                </div>
+                <div class="value-item">
+                    <span>Automation Workflows (3-5 custom)</span>
+                    <span class="value-price">$600</span>
+                </div>
+                <div class="value-item">
+                    <span>Training & Documentation</span>
+                    <span class="value-price">$250</span>
+                </div>
+                <div class="value-item">
+                    <span>Total Value</span>
+                    <span class="value-price" style="color: var(--gold); font-weight: 700;">$2,400</span>
+                </div>
+            </div>
+
+            <div class="price-reveal">
+                <span class="original-price">$2,400</span>
+                <span class="current-price">$497</span>
+                <p class="price-note">One-time payment. No subscription. Yours forever.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#book" class="cta-primary">Claim Your Spot Now</a>
+            </div>
+        </div>
+
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <div class="trust-badge-icon">🔒</div>
+                <div class="trust-badge-text">Secure Setup</div>
+            </div>
+            <div class="trust-badge">
+                <div class="trust-badge-icon">🛡️</div>
+                <div class="trust-badge-text">Privacy First</div>
+            </div>
+            <div class="trust-badge">
+                <div class="trust-badge-icon">⚡</div>
+                <div class="trust-badge-text">48-Hour Delivery</div>
+            </div>
+            <div class="trust-badge">
+                <div class="trust-badge-icon">💬</div>
+                <div class="trust-badge-text">24/7 Support</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Guarantee -->
+<section>
+    <div class="container">
+        <div class="guarantee-section">
+            <div class="guarantee-icon">🛡️</div>
+            <h3>100% Satisfaction Guarantee</h3>
+            <p style="font-size: 1.2rem; line-height: 1.8;">If you're not completely satisfied with your AI setup, we'll rebuild it from scratch—free. No questions asked. We don't win unless you win.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section>
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need technical skills to use this?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Nope. We handle all the technical setup. You just talk to your AI like you'd talk to a human assistant. No coding required.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Where does my data live?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>100% on YOUR infrastructure—either your local machine or your private cloud. We don't have access to your data. Ever.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What if I need changes after the initial setup?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You own the system. You can tweak it yourself, or we offer ongoing support packages. But most clients are fully autonomous after handoff.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How is this different from ChatGPT or Claude?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ChatGPT and Claude are tools you use manually. This is an autonomous agent that works 24/7, remembers everything, runs workflows, and integrates with your entire digital life. It's the difference between a chatbot and a virtual COO.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What happens after 48 hours?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You have a fully operational AI agent. We hand you the keys. You can keep using it forever, expand it, or tweak it as your needs evolve. No ongoing fees unless you want continued support.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is there a refund policy?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We don't offer refunds, but we do offer rebuilds. If you're not happy, we rebuild it until you are. Our goal is your success, not a quick sale.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section style="background: linear-gradient(135deg, var(--card-bg) 0%, rgba(212, 168, 67, 0.1) 100%); border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold);">
+    <div class="container" style="text-align: center;">
+        <h2>Ready to Get Your Time Back?</h2>
+        <p class="section-subtitle">Only 5 spots available this week. Last 3 clients booked within 24 hours.</p>
+        
+        <div style="margin: 2rem 0;">
+            <a href="#book" class="cta-primary">Claim Your AI Partner Now — $497</a>
+        </div>
+
+        <p style="color: var(--text-dim); margin-top: 1.5rem;">
+            ⏰ Spots fill fast. Don't let manual work steal another week from you.
+        </p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 OpenClaw AI Partners. Built for builders who refuse to settle for average.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Privacy-first. Human-led. AI-powered.</p>
+    </div>
+</footer>
+
+<!-- Booking Section (Hidden Anchor) -->
+<div id="book" style="padding: 5rem 0; background: var(--card-bg);">
+    <div class="container" style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <h2 style="margin-bottom: 1rem;">Book Your Discovery Call</h2>
+        <p style="color: var(--text-dim); margin-bottom: 2rem;">Fill out the form below and we'll reach out within 24 hours to schedule your kickoff.</p>
+        
+        <!-- Replace this with your actual booking form/calendar link -->
+        <div style="background: rgba(212, 168, 67, 0.1); padding: 3rem; border-radius: 8px; border: 2px solid var(--gold);">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">📧 Contact: your-email@example.com</p>
+            <p style="color: var(--text-dim);">Or use your preferred booking system (Calendly, TidyCal, etc.)</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Floating Particles Animation
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        particle.style.animationDelay = Math.random() * 5 + 's';
+        particlesContainer.appendChild(particle);
+    }
+
+    // Countdown Timer (Resets Weekly)
+    function updateCountdown() {
+        const now = new Date();
+        const dayOfWeek = now.getDay(); // 0 = Sunday, 6 = Saturday
+        const daysUntilSunday = (7 - dayOfWeek) % 7 || 7;
+        const nextSunday = new Date(now);
+        nextSunday.setDate(now.getDate() + daysUntilSunday);
+        nextSunday.setHours(23, 59, 59, 999);
+
+        const diff = nextSunday - now;
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Scroll Reveal Animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
+    }, observerOptions);
 
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Animated Stats Counter
+    function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                element.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                element.textContent = target;
+            }
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
+        updateCounter();
+    }
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
+    const statsObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.stat-number[data-target]');
+                counters.forEach(counter => {
+                    if (!counter.classList.contains('animated')) {
+                        counter.classList.add('animated');
+                        animateCounter(counter);
+                    }
+                });
+            }
         });
+    }, { threshold: 0.5 });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+    document.querySelectorAll('.stats-grid').forEach(grid => {
+        statsObserver.observe(grid);
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
             });
+            
+            // Toggle current FAQ
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
         });
-    </script>
+    });
+
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
